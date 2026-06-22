@@ -11,6 +11,9 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; }
 
@@ -65,13 +68,23 @@
             --noise-opacity: 0.15;
         }
 
-        body {
-            background: var(--bg-base);
-            color: var(--text-base);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+       :root {
+    --font-body: 'Outfit', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+}
+
+body {
+    background: var(--bg-base);
+    color: var(--text-base);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply the premium heading font to specific elements */
+h1, h2, h3, h4, h5, h6, .hero-line, .card-num, .font-black, .uppercase {
+    font-family: var(--font-heading);
+}
 
         /* ─── FLOATING SHAPES ─── */
         .shape {
@@ -448,8 +461,8 @@
             <div>
                 <div class="inline-flex items-center gap-2 mb-8 px-3 py-1 border border-gray-300 dark:border-zinc-700 text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 transition-colors"
                      style="animation:fadeIn 1s .1s both">
-                    <span class="w-2 h-2 bg-black dark:bg-white rounded-full transition-colors" style="animation:pulseDot 2s infinite"></span>
-                    Available for projects
+                    <span class="w-2 h-2 bg-green-500 rounded-full" style="animation:pulseDot 2s infinite"></span>
+                    Available for full-time opportunities
                 </div>
 
                 <h1 class="font-black text-black dark:text-white tracking-tighter leading-none mb-6 transition-colors"
@@ -466,11 +479,11 @@
                 <div class="flex flex-wrap gap-4" style="animation:fadeInUp .9s 1s both">
                     <a href="#capabilities"
                        class="bg-black dark:bg-white text-white dark:text-black px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:-translate-y-1 inline-block">
-                        View Services
+                        View Value Add
                     </a>
                     <a href="#contact"
                        class="border-2 border-black dark:border-white text-black dark:text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-300 hover:-translate-y-1 inline-block">
-                        Let's Talk
+                        Hire Me
                     </a>
                 </div>
 
@@ -521,7 +534,7 @@
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
             <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">High-Density Dashboards</span>
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
-            <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Karachi, Pakistan</span>
+            <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Available for Hire</span>
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
             <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Full Stack Development</span>
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
@@ -533,7 +546,7 @@
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
             <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">High-Density Dashboards</span>
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
-            <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Karachi, Pakistan</span>
+            <span class="text-white text-xs font-bold uppercase tracking-widest whitespace-nowrap">Available for Hire</span>
             <span class="text-gray-600 dark:text-gray-700 text-lg">✦</span>
         </div>
     </div>
@@ -578,7 +591,7 @@
                     My core focus sits at the intersection of <strong class="text-black dark:text-white font-semibold transition-colors">backend architecture</strong>, sophisticated database logic, and translating heavy data loads into clean, punchy, one-screen digital environments. I write code that is as scalable and robust behind the scenes as it is intuitive and sleek on the front end.
                 </p>
                 <p>
-                    I've delivered vehicle valuation platforms, large-scale ERP systems, and high-density admin dashboards — always engineered with performance and maintainability as first-class priorities.
+                    I am currently seeking a full-time role where I can contribute to a highly technical team. I've delivered vehicle valuation platforms, large-scale ERP systems, and high-density admin dashboards — always engineered with performance and maintainability as first-class priorities.
                 </p>
 
                 <div class="mt-12 space-y-8 border-t border-gray-100 dark:border-zinc-800 pt-10 transition-colors">
@@ -700,10 +713,10 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20">
             <div class="reveal">
-                <span class="text-xs font-bold uppercase tracking-widest text-gray-400">03 — Services</span>
-                <h2 class="text-4xl md:text-5xl font-black text-black dark:text-white tracking-tighter mt-4 transition-colors">What I Build<br>For You</h2>
+                <span class="text-xs font-bold uppercase tracking-widest text-gray-400">03 — Value</span>
+                <h2 class="text-4xl md:text-5xl font-black text-black dark:text-white tracking-tighter mt-4 transition-colors">Value I Bring<br>To Your Team</h2>
             </div>
-            <p class="text-gray-500 dark:text-gray-400 max-w-sm text-sm mt-6 md:mt-0 reveal delay-2 transition-colors">Deep technical experience delivering high-impact, scalable solutions.</p>
+            <p class="text-gray-500 dark:text-gray-400 max-w-sm text-sm mt-6 md:mt-0 reveal delay-2 transition-colors">Deep technical experience delivering high-impact, scalable solutions for businesses.</p>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-8">
@@ -785,9 +798,9 @@
     <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16">
         <div class="reveal delay-1">
             <span class="text-xs font-bold uppercase tracking-widest text-gray-400">04 — Contact</span>
-            <h2 class="text-4xl md:text-6xl font-black text-black dark:text-white tracking-tighter mt-4 mb-8 transition-colors">Let's build<br>something.</h2>
+            <h2 class="text-4xl md:text-6xl font-black text-black dark:text-white tracking-tighter mt-4 mb-8 transition-colors">Let's work<br>together.</h2>
             <p class="text-gray-500 dark:text-gray-400 mb-12 max-w-md text-lg font-light leading-relaxed transition-colors">
-                Have a project in mind, need architecture consulting, or just want to connect? The inbox is always open.
+                Currently open for full-time job opportunities and freelance consulting. Feel free to reach out to discuss how I can contribute to your next project.
             </p>
 
             <div class="space-y-6">
@@ -797,7 +810,7 @@
                     </div>
                     <div>
                         <span class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Email</span>
-                        <a href="mailto:contact@hassanraza.dev" class="text-base font-semibold text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors anim-link">contact@hassanraza.dev</a>
+                        <a href="mailto:hassanraza03097477849@gmail.com" class="text-base font-semibold text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors anim-link">hassanraza03097477849@gmail.com</a>
                     </div>
                 </div>
                 <div class="flex items-center gap-4">
@@ -811,50 +824,59 @@
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="w-10 h-10 bg-gray-200 dark:bg-zinc-800 flex items-center justify-center transition-colors">
-                        <i class="fa-regular fa-clock text-black dark:text-white text-xl transition-colors"></i>
+                        <i class="fa-solid fa-file-lines text-black dark:text-white text-xl transition-colors"></i>
                     </div>
                     <div>
-                        <span class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Response time</span>
-                        <span class="text-base font-semibold text-black dark:text-white transition-colors">Within 24 hours</span>
-                    </div>
+    <span class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-0.5">Resume</span>
+    <a href="/Hassan Raza - Full Stack Developer CV.pdf" download class="text-base font-semibold text-black dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors anim-link">Download CV</a>
+</div>
                 </div>
             </div>
         </div>
 
-        <div class="reveal delay-3">
-            <div class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm p-8 lg:p-10 transition-colors">
-                <div class="grid grid-cols-2 gap-6 mb-8">
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Name</label>
-                        <input type="text" class="form-input placeholder-gray-400 dark:placeholder-gray-600" placeholder="John Doe">
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Email</label>
-                        <input type="email" class="form-input placeholder-gray-400 dark:placeholder-gray-600" placeholder="john@example.com">
-                    </div>
+     <div class="reveal delay-3">
+    <div class="bg-white dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 shadow-sm p-8 lg:p-10 transition-colors" id="form-container">
+        
+        <form id="contact-form" action="https://formsubmit.co/ajax/hassanraza03097477849@gmail.com" method="POST" class="w-full">
+            
+            <input type="hidden" name="_subject" value="New Inquiry via Portfolio">
+            <input type="hidden" name="_autoresponse" value="Thank you for reaching out! I have received your message and will review it shortly. - Hassan Raza">
+            <input type="hidden" name="_template" value="box">
+
+            <div class="grid grid-cols-2 gap-6 mb-8">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Name</label>
+                    <input type="text" name="name" required class="form-input placeholder-gray-400 dark:placeholder-gray-600" placeholder="John Doe">
                 </div>
-                <div class="space-y-2 mb-8">
-                    <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Project type</label>
-                    <select class="form-input">
-                        <option class="dark:bg-zinc-900">ERP / System Architecture</option>
-                        <option class="dark:bg-zinc-900">Web Application</option>
-                        <option class="dark:bg-zinc-900">Dashboard / Admin Panel</option>
-                        <option class="dark:bg-zinc-900">Database Design</option>
-                        <option class="dark:bg-zinc-900">Other</option>
-                    </select>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Email</label>
+                    <input type="email" name="email" required class="form-input placeholder-gray-400 dark:placeholder-gray-600" placeholder="john@example.com">
                 </div>
-                <div class="space-y-2 mb-8">
-                    <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Message</label>
-                    <textarea rows="4" class="form-input resize-none placeholder-gray-400 dark:placeholder-gray-600" placeholder="Tell me about your project..."></textarea>
-                </div>
-                <button type="button"
-                    class="w-full bg-black dark:bg-white text-white dark:text-black py-4 text-xs font-black uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors relative overflow-hidden group">
-                    <span class="relative z-10">Send Message →</span>
-                    <div class="absolute inset-0 bg-gray-800 dark:bg-gray-300 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
-                </button>
             </div>
-        </div>
+            
+            <div class="space-y-2 mb-8">
+                <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Inquiry type</label>
+                <select name="inquiry_type" required class="form-input">
+                    <option value="Full-Time Opportunity" class="dark:bg-zinc-900">Full-Time Opportunity</option>
+                    <option value="Freelance / Contract" class="dark:bg-zinc-900">Freelance / Contract</option>
+                    <option value="Consulting" class="dark:bg-zinc-900">Consulting</option>
+                    <option value="Other" class="dark:bg-zinc-900">Other</option>
+                </select>
+            </div>
+            
+            <div class="space-y-2 mb-8">
+                <label class="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Message</label>
+                <textarea name="message" rows="4" required class="form-input resize-none placeholder-gray-400 dark:placeholder-gray-600" placeholder="Tell me about your project or opportunity..."></textarea>
+            </div>
+            
+            <button type="submit" id="submit-btn" class="w-full bg-black dark:bg-white text-white dark:text-black py-4 text-xs font-black uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors relative overflow-hidden group border-none cursor-pointer">
+                <span class="relative z-10 mix-blend-difference text-white btn-text">Send Message →</span>
+                <div class="absolute inset-0 bg-gray-800 dark:bg-gray-300 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out"></div>
+            </button>
+            
+        </form>
     </div>
+</div>
 </section>
 
 <footer class="bg-black dark:bg-[#050505] text-white py-12 border-t border-gray-900 dark:border-zinc-900 relative overflow-hidden transition-colors">
@@ -892,14 +914,12 @@ function setTheme(isDark) {
     }
 }
 
-// Initialize Theme
 if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     setTheme(true);
 } else {
     setTheme(false);
 }
 
-// Attach Event Listeners
 themeToggles.forEach(btn => {
     btn.addEventListener('click', () => {
         setTheme(!html.classList.contains('dark'));
@@ -988,6 +1008,51 @@ const scrollSpy = new IntersectionObserver((entries) => {
     });
 }, { threshold: .4 });
 sections.forEach(s => scrollSpy.observe(s));
+
+/* ─── AJAX FORM SUBMISSION ─── */
+const contactForm = document.getElementById('contact-form');
+const formContainer = document.getElementById('form-container');
+const submitBtn = document.getElementById('submit-btn');
+const btnText = submitBtn.querySelector('.btn-text');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const originalText = btnText.innerHTML;
+    btnText.innerHTML = 'Sending...';
+    submitBtn.style.pointerEvents = 'none';
+
+    const formData = new FormData(contactForm);
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            // Replace form with Thank You message
+            formContainer.innerHTML = `
+                <div class="text-center py-12 reveal visible">
+                    <i class="fa-solid fa-circle-check text-5xl text-[#0D7961] mb-6"></i>
+                    <h3 class="text-3xl font-black text-black dark:text-white tracking-tighter mb-4">Message Sent!</h3>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg leading-relaxed">
+                        Thank you for reaching out. I've received your email and will respond to you within 24 hours.
+                    </p>
+                </div>
+            `;
+        } else {
+            throw new Error('Network response was not ok');
+        }
+    } catch (error) {
+        btnText.innerHTML = 'Error! Try Again.';
+        submitBtn.style.pointerEvents = 'auto';
+        setTimeout(() => btnText.innerHTML = originalText, 3000);
+    }
+});
 </script>
 </body>
 </html>
