@@ -28,6 +28,7 @@ export default function AdminOverview() {
           <a href="/admin/projects/new" className="text-blue-600 hover:underline">Add New Project &rarr;</a>
           <a href="/admin/cv" className="text-blue-600 hover:underline">Update CV Data &rarr;</a>
           <a href="/admin/content/home" className="text-blue-600 hover:underline">Edit Home Page &rarr;</a>
+          <a href="/admin/content/about" className="text-blue-600 hover:underline">Edit About Page &rarr;</a>
           <a href="/admin/settings" className="text-blue-600 hover:underline">Site Settings &rarr;</a>
         </div>
       </div>

@@ -12,6 +12,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
         <nav className="flex-1 px-4 py-6 space-y-2">
           <a href="/admin" className="block px-3 py-2 rounded-md text-sm font-medium bg-gray-100 text-gray-900">Overview</a>
+          <a href="/admin/content/home" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">Home Page</a>
+          <a href="/admin/content/about" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">About Page</a>
           <a href="/admin/projects" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">Projects</a>
           <a href="/admin/leads" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">Leads</a>
           <a href="/admin/cv" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:bg-gray-50">CV Engine</a>
