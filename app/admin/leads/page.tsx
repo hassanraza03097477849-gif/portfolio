@@ -12,7 +12,7 @@ export default function LeadsInbox() {
 
   const loadLeads = async () => {
     setLoading(true);
-    const constraints = [orderBy('createdAt', 'desc')];
+    const constraints: any[] = [orderBy('createdAt', 'desc')];
     if (filter !== 'all') {
       constraints.push(where('status', '==', filter));
     }

@@ -16,7 +16,7 @@ export default async function CategoryPage({ params }: { params: { category: str
 
   try {
     const cSnap = await adminDb.collection('categories').orderBy('order', 'asc').get();
-    categories = cSnap.docs.map(d => ({ id: d.id, ...d.data() } as Category));
+    categories = cSnap.docs.map((d: any) => ({ id: d.id, ...d.data() } as Category));
     currentCat = categories.find(c => c.slug === params.category) || null;
 
     if (currentCat) {
@@ -25,7 +25,7 @@ export default async function CategoryPage({ params }: { params: { category: str
         .where('categoryId', '==', currentCat.id)
         .orderBy('order', 'asc')
         .get();
-      projects = pSnap.docs.map(d => ({ id: d.id, ...d.data() } as Project));
+      projects = pSnap.docs.map((d: any) => ({ id: d.id, ...d.data() } as Project));
     }
   } catch (e) {
     console.error(e);

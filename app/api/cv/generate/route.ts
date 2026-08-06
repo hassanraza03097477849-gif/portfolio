@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
     const data = docSnap.data() as CVData;
 
     // 2. Render PDF to stream
-    const stream = await renderToStream(React.createElement(CVDocument, { data }));
+    const stream = await renderToStream(React.createElement(CVDocument, { data }) as any);
     
     // Convert stream to Buffer
     const chunks: Buffer[] = [];

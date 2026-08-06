@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { adminDb } from '@/lib/firebase/admin';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-71fe0.web.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://hassanraza.online';
   
   const routes: MetadataRoute.Sitemap = [
     { url: `${baseUrl}`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
@@ -18,9 +18,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     
     // Create a lookup for category slugs
     const categoryMap = new Map();
-    cSnap.docs.forEach(doc => categoryMap.set(doc.id, doc.data().slug));
+    cSnap.docs.forEach((doc: any) => categoryMap.set(doc.id, doc.data().slug));
 
-    pSnap.docs.forEach(doc => {
+    pSnap.docs.forEach((doc: any) => {
       const p = doc.data();
       const catSlug = categoryMap.get(p.categoryId) || 'misc';
       routes.push({

@@ -16,10 +16,10 @@ export default async function ProjectsIndex() {
 
   try {
     const pSnap = await adminDb.collection('projects').where('status', '==', 'published').orderBy('order', 'asc').get();
-    projects = pSnap.docs.map(d => ({ id: d.id, ...d.data() } as Project));
+    projects = pSnap.docs.map((d: any) => ({ id: d.id, ...d.data() } as Project));
 
     const cSnap = await adminDb.collection('categories').orderBy('order', 'asc').get();
-    categories = cSnap.docs.map(d => ({ id: d.id, ...d.data() } as Category));
+    categories = cSnap.docs.map((d: any) => ({ id: d.id, ...d.data() } as Category));
   } catch (e) {
     console.error(e);
   }

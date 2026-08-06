@@ -17,15 +17,15 @@ export async function generateMetadata(): Promise<Metadata> {
           template: `%s | ${settings.siteName || 'Portfolio'}`,
           default: settings.siteName || 'Portfolio',
         },
-        description: settings.seo?.metaDescription || 'Professional Portfolio',
+        description: settings.tagline || 'Professional Portfolio',
         openGraph: {
           title: settings.siteName || 'Portfolio',
-          description: settings.seo?.metaDescription || 'Professional Portfolio',
-          url: process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio-71fe0.web.app',
+          description: settings.tagline || 'Professional Portfolio',
+          url: process.env.NEXT_PUBLIC_SITE_URL || 'https://hassanraza.online',
           siteName: settings.siteName || 'Portfolio',
           images: [
             {
-              url: settings.seo?.ogImage || '',
+              url: settings.defaultOgImage || '',
               width: 1200,
               height: 630,
             },
