@@ -15,8 +15,9 @@ const firebaseConfig = {
 // Initialize Firebase only if it hasn't been initialized yet
 const app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
 
-const auth = getAuth(app);
-const db = getFirestore(app);
-const storage = getStorage(app);
+// Initialize services only if config is present (prevents Vercel build crashes)
+const auth = firebaseConfig.apiKey ? getAuth(app) : ({} as any);
+const db = firebaseConfig.projectId ? getFirestore(app) : ({} as any);
+const storage = firebaseConfig.storageBucket ? getStorage(app) : ({} as any);
 
 export { app, auth, db, storage };
