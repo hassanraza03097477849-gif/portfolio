@@ -20,14 +20,24 @@ export default function CVEditor() {
   const [saving, setSaving] = useState(false);
   const [generating, setGenerating] = useState(false);
 
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     async function loadData() {
-      const doc = await getDocument<CVData>('cv', 'main');
-      if (doc) setData(doc);
-      setLoading(false);
+      try {
+        const doc = await getDocument<CVData>('cv', 'main');
+        if (doc) setData(doc);
+      } catch (err: any) {
+        console.error('Failed to load CV:', err);
+        setError(err.message || 'Failed to connect to database');
+      } finally {
+        setLoading(false);
+      }
     }
     loadData();
   }, []);
+
+  if (error) return <div className="p-8 text-red-600">Database Error: {error}<br/><br/>(If this says "Missing or insufficient permissions", you need to update your Firestore Security Rules in the Firebase Console!)</div>;
 
   const handleSave = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
