@@ -1,4 +1,5 @@
 import React from 'react';
+import SignOutButton from './SignOutButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -26,7 +27,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
         <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
           <h1 className="text-xl font-semibold">Dashboard</h1>
-          <button className="text-sm font-medium text-gray-600 hover:text-gray-900">Sign Out</button>
+          <SignOutButton />
         </header>
         <div className="flex-1 overflow-y-auto p-6">
           {children}
