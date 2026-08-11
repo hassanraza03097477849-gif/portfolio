@@ -48,9 +48,10 @@ export default function Projects({
         {/* Project Grid */}
         <div className="grid md:grid-cols-2 gap-6 reveal delay-1">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={project.id}
-              className={`group relative overflow-hidden border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 md:p-12 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between`}
+              href={`/projects/${project.id}`}
+              className={`group relative overflow-hidden border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-8 md:p-12 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col justify-between block`}
               style={{ minHeight: "450px" }}
             >
               {/* Massive Number Watermark */}
@@ -89,14 +90,11 @@ export default function Projects({
                   ))}
                 </div>
                 
-                <a
-                  href={project.link}
-                  className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-black dark:text-white group-hover:text-white transition-colors duration-500 hover:gap-4"
-                >
+                <span className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-widest text-black dark:text-white group-hover:text-white transition-colors duration-500 group-hover:gap-4">
                   View Case Study <i className="fa-solid fa-arrow-right"></i>
-                </a>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
