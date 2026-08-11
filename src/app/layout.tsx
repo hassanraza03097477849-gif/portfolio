@@ -7,6 +7,7 @@ export const metadata: Metadata = {
 };
 
 import { getAdminDb } from '@/lib/firebase/admin';
+import Loader from '@/components/Loader';
 
 export default async function RootLayout({
   children,
@@ -57,7 +58,10 @@ export default async function RootLayout({
           `
         }} />
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <Loader />
+        {children}
+      </body>
     </html>
   );
 }
