@@ -199,7 +199,7 @@ export async function GET() {
     // @ts-ignore
     const buffer = await renderToBuffer(CVComponent);
 
-    return new NextResponse(buffer, {
+    return new NextResponse(buffer as any, {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',

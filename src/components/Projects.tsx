@@ -79,7 +79,7 @@ export default function Projects({
                   {project.shortDescription}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tech.map((tech, i) => (
+                  {project.tech.map((tech: string, i: number) => (
                     <span
                       key={i}
                       className="text-[10px] font-bold uppercase tracking-widest text-black dark:text-white group-hover:text-white border border-gray-200 dark:border-zinc-700 group-hover:border-white/30 px-3 py-1.5 transition-colors duration-500 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm group-hover:bg-black/50"

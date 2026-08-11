@@ -64,7 +64,7 @@ export default async function Page() {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": settings.title,
-    "jobTitle": heroData.tagline,
+    "jobTitle": heroData?.tagline || "",
     "url": "https://hassanraza.portfolio",
     "sameAs": []
   };

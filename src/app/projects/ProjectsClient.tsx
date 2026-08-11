@@ -117,7 +117,7 @@ export default function ProjectsClient({ projectsData }: { projectsData: any[] }
                     Key Features
                   </h4>
                   <ul className="space-y-2">
-                    {project.features.map((feature, i) => (
+                    {project.features.map((feature: string, i: number) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
                         <i className="fa-solid fa-check text-black dark:text-white mt-1 text-[10px]"></i>
                         {feature}
@@ -127,7 +127,7 @@ export default function ProjectsClient({ projectsData }: { projectsData: any[] }
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-10">
-                  {project.tech.map((tech, i) => (
+                  {project.tech.map((tech: string, i: number) => (
                     <span
                       key={i}
                       className="text-xs border border-gray-200 dark:border-zinc-800 px-3 py-1.5 font-bold uppercase tracking-wider text-black dark:text-gray-300"
