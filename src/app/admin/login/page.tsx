@@ -33,7 +33,8 @@ export default function AdminLogin() {
         router.push("/admin");
         router.refresh();
       } else {
-        setError("Unauthorized access.");
+        const errData = await response.json().catch(() => ({}));
+        setError(errData.error || "Unauthorized access.");
       }
     } catch (err: any) {
       setError(err.message || "Failed to login");
