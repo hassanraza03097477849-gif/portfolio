@@ -53,13 +53,13 @@ export default function Hero({ data }: { data?: any }) {
               style={{ animation: "fadeInUp .9s 1s both" }}
             >
               <a
-                href="#capabilities"
+                href="/projects"
                 className="bg-black dark:bg-white text-white dark:text-black px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:-translate-y-1 inline-block"
               >
                 {ctaText}
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="border-2 border-black dark:border-white text-black dark:text-white px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-gray-100 dark:hover:bg-zinc-800 transition-all duration-300 hover:-translate-y-1 inline-block"
               >
                 Hire Me
