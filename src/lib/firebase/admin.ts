@@ -25,6 +25,6 @@ if (!getApps().length) {
   app = getApps()[0];
 }
 
-export const adminDb = app ? getFirestore(app) : null as any;
-export const adminAuth = app ? getAuth(app) : null as any;
-export const adminStorage = app ? getStorage(app) : null as any;
+export const adminDb = app ? getFirestore(app) : (null as unknown as ReturnType<typeof getFirestore>);
+export const adminAuth = app ? getAuth(app) : (null as unknown as ReturnType<typeof getAuth>);
+export const adminStorage = app ? getStorage(app) : (null as unknown as ReturnType<typeof getStorage>);
