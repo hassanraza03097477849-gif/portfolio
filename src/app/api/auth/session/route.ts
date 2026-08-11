@@ -5,9 +5,6 @@ export async function POST(request: Request) {
   try {
     const { idToken } = await request.json();
 
-    if (!adminAuth) {
-      return NextResponse.json({ error: 'Firebase Admin SDK failed to initialize. Check Vercel environment variables (FIREBASE_PRIVATE_KEY format).' }, { status: 500 });
-    }
 
     if (!idToken) {
       return NextResponse.json({ error: 'Missing ID Token' }, { status: 400 });
