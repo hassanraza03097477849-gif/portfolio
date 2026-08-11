@@ -32,8 +32,8 @@ export default function AdminLogin() {
       const errData = await response.json().catch(() => ({}));
       
       if (response.ok && errData.success) {
-        router.push("/admin");
-        router.refresh();
+        // Hard navigate so the new session cookie is picked up by middleware
+        window.location.href = '/admin';
       } else {
         setError(errData.error || "Unauthorized access.");
       }

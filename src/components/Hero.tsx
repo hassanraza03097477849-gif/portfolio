@@ -3,6 +3,16 @@ export default function Hero({ data }: { data?: any }) {
   const line2 = data?.line2 || "RAZA";
   const tagline = data?.tagline || "Detail-oriented Full Stack Developer...";
   const ctaText = data?.ctaText || "View Value Add";
+  const availabilityText = data?.availabilityText || "Available for full-time opportunities";
+  const floatingTags: string[] = data?.floatingTags || ["Laravel", "Vue.js", "MySQL", "React"];
+
+  const tagPositions = [
+    { top: "10%", right: "5%", animation: "floatDot 5s 0s ease-in-out infinite", dark: false },
+    { bottom: "18%", left: "2%", animation: "floatDot 5s 1s ease-in-out infinite", dark: true },
+    { bottom: "5%", right: "15%", animation: "floatDot 5s 2s ease-in-out infinite", dark: false },
+    { top: "25%", left: "0%", animation: "floatDot 5s 1.5s ease-in-out infinite", dark: false },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
@@ -16,7 +26,7 @@ export default function Hero({ data }: { data?: any }) {
                 className="w-2 h-2 bg-green-500 rounded-full"
                 style={{ animation: "pulseDot 2s infinite" }}
               ></span>
-              Available for full-time opportunities
+              {availabilityText}
             </div>
 
             <h1
@@ -130,46 +140,25 @@ export default function Hero({ data }: { data?: any }) {
                 }}
               ></div>
             </div>
-            <div
-              className="absolute font-bold text-xs uppercase tracking-widest bg-white dark:bg-zinc-900 dark:text-white border border-gray-200 dark:border-zinc-800 px-3 py-1 shadow-md transition-colors"
-              style={{
-                top: "10%",
-                right: "5%",
-                animation: "floatDot 5s 0s ease-in-out infinite",
-              }}
-            >
-              Laravel
-            </div>
-            <div
-              className="absolute font-bold text-xs uppercase tracking-widest bg-black dark:bg-white text-white dark:text-black px-3 py-1 shadow-md transition-colors"
-              style={{
-                bottom: "18%",
-                left: "2%",
-                animation: "floatDot 5s 1s ease-in-out infinite",
-              }}
-            >
-              Vue.js
-            </div>
-            <div
-              className="absolute font-bold text-xs uppercase tracking-widest bg-white dark:bg-zinc-900 dark:text-white border border-gray-200 dark:border-zinc-800 px-3 py-1 shadow-md transition-colors"
-              style={{
-                bottom: "5%",
-                right: "15%",
-                animation: "floatDot 5s 2s ease-in-out infinite",
-              }}
-            >
-              MySQL
-            </div>
-            <div
-              className="absolute font-bold text-xs uppercase tracking-widest bg-white dark:bg-zinc-900 dark:text-white border border-gray-200 dark:border-zinc-800 px-3 py-1 shadow-md transition-colors"
-              style={{
-                top: "25%",
-                left: "0%",
-                animation: "floatDot 5s 1.5s ease-in-out infinite",
-              }}
-            >
-              React
-            </div>
+
+            {/* Dynamic floating tech tags */}
+            {floatingTags.slice(0, 4).map((tag, i) => {
+              const pos = tagPositions[i] || tagPositions[0];
+              const isDark = pos.dark;
+              return (
+                <div
+                  key={i}
+                  className={`absolute font-bold text-xs uppercase tracking-widest px-3 py-1 shadow-md transition-colors ${
+                    isDark
+                      ? "bg-black dark:bg-white text-white dark:text-black"
+                      : "bg-white dark:bg-zinc-900 dark:text-white border border-gray-200 dark:border-zinc-800"
+                  }`}
+                  style={{ ...pos, animation: pos.animation } as React.CSSProperties}
+                >
+                  {tag}
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
