@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { getAdminAuthOnly } from '@/lib/firebase/auth';
 
 export const runtime = 'nodejs';
 
@@ -11,6 +10,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing ID Token' }, { status: 400 });
     }
 
+    const { getAdminAuthOnly } = await import('@/lib/firebase/auth');
     const expiresIn = 60 * 60 * 24 * 5 * 1000; // 5 days
     const sessionCookie = await getAdminAuthOnly().createSessionCookie(idToken, { expiresIn });
 
