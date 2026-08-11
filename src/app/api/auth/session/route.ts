@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     });
 
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Session creation error:', error);
     return NextResponse.json({ error: error.message || 'Unauthorized' }, { status: 401 });
   }
