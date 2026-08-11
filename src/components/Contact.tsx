@@ -53,27 +53,12 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-zinc-900 relative transition-colors"
+      className="py-20 bg-white dark:bg-[#0a0a0a] relative transition-colors"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
         
         {/* Left Column - Details */}
         <div className="reveal delay-1 sticky top-32">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="w-8 h-px bg-black dark:bg-white transition-colors"></span>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
-              05 — Contact
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-6xl font-black text-black dark:text-white tracking-tighter mb-6 transition-colors leading-[1.1]">
-            Let&apos;s work
-            <br />
-            <span className="text-gray-400 dark:text-gray-600">together.</span>
-          </h2>
-          <p className="text-gray-600 dark:text-gray-400 mb-12 max-w-md text-lg leading-relaxed transition-colors">
-            I am actively seeking full-time opportunities with forward-thinking technical teams. Whether you are hiring for a specific role or looking to collaborate on a high-impact project, I would love to connect.
-          </p>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="p-6 border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-[#111] transition-colors">
               <i className="fa-solid fa-at text-black dark:text-white mb-4 text-xl"></i>
@@ -115,8 +100,8 @@ export default function Contact() {
                 Resume
               </span>
               <a
-                href="/2132.pdf"
-                download
+                href="/api/cv/generate"
+                target="_blank"
                 className="text-sm font-black text-white dark:text-black flex items-center gap-2 group-hover:gap-4 transition-all"
               >
                 Download CV <i className="fa-solid fa-arrow-down"></i>
