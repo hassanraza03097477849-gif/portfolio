@@ -1,11 +1,11 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from '@/lib/firebase/admin';
 import HomeClient from "./HomeClient";
 import type { Metadata } from "next";
 
 export const revalidate = 60; // ISR
 
 export async function generateMetadata(): Promise<Metadata> {
-  const settingsDoc = await adminDb.collection("siteSettings").doc("main").get();
+  const settingsDoc = await getAdminDb().collection("siteSettings").doc("main").get();
   const settings = settingsDoc.data() || { title: "Hassan Raza | Portfolio", description: "Portfolio" };
 
   return {
@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const heroDoc = await adminDb.collection("siteContent").doc("hero").get();
+  const heroDoc = await getAdminDb().collection("siteContent").doc("hero").get();
   const heroData = heroDoc.exists ? heroDoc.data() : {
     line1: "HASSAN",
     line2: "RAZA",
@@ -24,25 +24,25 @@ export default async function Page() {
     ctaText: "View Value Add"
   };
 
-  const settingsDoc = await adminDb.collection("siteSettings").doc("main").get();
+  const settingsDoc = await getAdminDb().collection("siteSettings").doc("main").get();
   const settings = settingsDoc.data() || { title: "Hassan Raza | Portfolio" };
 
-  const projectsSnapshot = await adminDb.collection("projects").get();
+  const projectsSnapshot = await getAdminDb().collection("projects").get();
   const projectsData = projectsSnapshot.docs.map(d => ({ id: d.id, ...d.data() }));
 
-  const aboutDoc = await adminDb.collection("siteContent").doc("about").get();
+  const aboutDoc = await getAdminDb().collection("siteContent").doc("about").get();
   const aboutData = aboutDoc.exists ? aboutDoc.data() : {
     headline: "Engineered\nfor Scale.",
     description: "I am a Full Stack Developer...",
     metrics: []
   };
 
-  const cvDoc = await adminDb.collection("cv").doc("main").get();
+  const cvDoc = await getAdminDb().collection("cv").doc("main").get();
   const cvData = cvDoc.exists ? cvDoc.data() : {
     experience: []
   };
 
-  const stackDoc = await adminDb.collection("siteContent").doc("stack").get();
+  const stackDoc = await getAdminDb().collection("siteContent").doc("stack").get();
   const stackData = stackDoc.exists ? stackDoc.data() : {
     items: [
       "NEXT.JS",

@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { adminDb } from '@/lib/firebase/admin';
+import { getAdminDb } from '@/lib/firebase/admin';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemapData: MetadataRoute.Sitemap = [
@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   try {
-    const projectsSnapshot = await adminDb.collection("projects").get();
+    const projectsSnapshot = await getAdminDb().collection("projects").get();
     projectsSnapshot.docs.forEach((doc) => {
       sitemapData.push({
         url: `https://hassanraza.portfolio/projects/${doc.id}`,

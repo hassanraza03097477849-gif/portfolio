@@ -1,10 +1,10 @@
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from '@/lib/firebase/admin';
 import ProjectsClient from "./ProjectsClient";
 
 export const revalidate = 60; // ISR cache
 
 export default async function Page() {
-  const projectsSnapshot = await adminDb.collection("projects").get();
+  const projectsSnapshot = await getAdminDb().collection("projects").get();
   const projectsData = projectsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 
   // Sort by year descending if desired, or however they are ordered.

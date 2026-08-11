@@ -21,26 +21,14 @@ export function initAdmin() {
   });
 }
 
-export const adminDb = new Proxy({}, {
-  get(target, prop) {
-    const db = getFirestore(initAdmin());
-    const val = db[prop as keyof typeof db];
-    return typeof val === 'function' ? val.bind(db) : val;
-  }
-}) as ReturnType<typeof getFirestore>;
+export function getAdminDb() {
+  return getFirestore(initAdmin());
+}
 
-export const adminAuth = new Proxy({}, {
-  get(target, prop) {
-    const auth = getAuth(initAdmin());
-    const val = auth[prop as keyof typeof auth];
-    return typeof val === 'function' ? val.bind(auth) : val;
-  }
-}) as ReturnType<typeof getAuth>;
+export function getAdminAuth() {
+  return getAuth(initAdmin());
+}
 
-export const adminStorage = new Proxy({}, {
-  get(target, prop) {
-    const storage = getStorage(initAdmin());
-    const val = storage[prop as keyof typeof storage];
-    return typeof val === 'function' ? val.bind(storage) : val;
-  }
-}) as ReturnType<typeof getStorage>;
+export function getAdminStorage() {
+  return getStorage(initAdmin());
+}

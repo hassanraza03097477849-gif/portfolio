@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { adminDb, adminStorage } from '@/lib/firebase/admin';
+import { getAdminDb, getAdminStorage } from '@/lib/firebase/admin';
 import { Document, Page, Text, View, StyleSheet, renderToBuffer } from '@react-pdf/renderer';
 
 // Register standard fonts if needed, but Helvetica is built-in
@@ -183,7 +183,7 @@ const ClassicCV = ({ data }: { data: any }) => (
 
 export async function GET() {
   try {
-    const docSnap = await adminDb.collection("cv").doc("main").get();
+    const docSnap = await getAdminDb().collection("cv").doc("main").get();
     if (!docSnap.exists) {
       return NextResponse.json({ error: "CV data not found" }, { status: 404 });
     }

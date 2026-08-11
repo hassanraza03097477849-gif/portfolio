@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'Full Stack Engineer based in Karachi',
 };
 
-import { adminDb } from "@/lib/firebase/admin";
+import { getAdminDb } from '@/lib/firebase/admin';
 
 export default async function RootLayout({
   children,
@@ -26,7 +26,7 @@ export default async function RootLayout({
   };
 
   try {
-    const themeDoc = await adminDb.collection("siteSettings").doc("theme").get();
+    const themeDoc = await getAdminDb().collection("siteSettings").doc("theme").get();
     if (themeDoc.exists) {
       theme = { ...theme, ...themeDoc.data() } as typeof theme;
     }
