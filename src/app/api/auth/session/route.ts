@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const { idToken } = await request.json();
 
-
     if (!idToken) {
       return NextResponse.json({ error: 'Missing ID Token' }, { status: 400 });
     }
@@ -25,6 +24,13 @@ export async function POST(request: Request) {
     return response;
   } catch (error: any) {
     console.error('Session creation error:', error);
-    return NextResponse.json({ error: error.message || 'Unauthorized' }, { status: 401 });
+    const errorMessage = error && error.message ? error.message : String(error);
+    const errorStack = error && error.stack ? error.stack : 'No stack';
+    
+    // Return 200 so Vercel doesn't intercept it, and we can see exactly what's failing in the UI
+    return NextResponse.json({ 
+      error: errorMessage,
+      details: errorStack 
+    }, { status: 200 });
   }
 }

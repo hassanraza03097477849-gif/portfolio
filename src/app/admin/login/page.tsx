@@ -29,11 +29,12 @@ export default function AdminLogin() {
         body: JSON.stringify({ idToken }),
       });
 
-      if (response.ok) {
+      const errData = await response.json().catch(() => ({}));
+      
+      if (response.ok && errData.success) {
         router.push("/admin");
         router.refresh();
       } else {
-        const errData = await response.json().catch(() => ({}));
         setError(errData.error || "Unauthorized access.");
       }
     } catch (err: any) {
