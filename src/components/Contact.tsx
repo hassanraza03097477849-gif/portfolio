@@ -1,13 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { db } from "@/lib/firebase/client";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 export default function Contact() {
+  const sectionRef = useRef<HTMLElement>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [btnText, setBtnText] = useState("Send Message →");
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            observer.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    el.querySelectorAll(".reveal, .reveal-left, .reveal-scale").forEach((r) => observer.observe(r));
+    // Also trigger immediately for elements already in view
+    el.querySelectorAll(".reveal, .reveal-left, .reveal-scale").forEach((r) => {
+      const rect = r.getBoundingClientRect();
+      if (rect.top < window.innerHeight) r.classList.add("visible");
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const [form, setForm] = useState({
     name: "",
@@ -53,6 +77,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
+      ref={sectionRef}
       className="py-20 bg-white dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-zinc-900 relative transition-colors"
     >
       <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
