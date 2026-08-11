@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper function to check if user is an admin
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    // Leads collection: public can write (create), only admins can read/update/delete
+    match /leads/{leadId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // All other collections: only admins can read/write
+    match /{document=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

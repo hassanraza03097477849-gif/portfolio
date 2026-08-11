@@ -1,0 +1,16 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Helper function to check if user is an admin
+    function isAdmin() {
+      // Storage rules can't easily read Firestore, so we just check if they are logged in with Firebase Auth.
+      // Alternatively, we can use custom claims.
+      return request.auth != null;
+    }
+
+    match /{allPaths=**} {
+      allow read: if true; // Public can read images/PDFs
+      allow write: if isAdmin();
+    }
+  }
+}
