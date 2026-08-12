@@ -89,10 +89,10 @@ export default function Hero({ data }: { data?: any }) {
             className="relative flex items-center justify-center h-80 lg:h-[500px] orbit-wrap"
             style={{ animation: "fadeIn 1.2s 1s both" }}
           >
-            <div className="relative w-56 h-72 lg:w-72 lg:h-96 bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 overflow-hidden shadow-2xl z-10 transition-colors">
+            <div className="relative w-64 h-80 lg:w-96 lg:h-[32rem] bg-gray-100 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 overflow-hidden shadow-2xl z-10 transition-colors">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/2.png"
+                src="/21.webp"
                 alt="Hassan Raza"
                 className="object-cover w-full h-full grayscale contrast-125 hover:scale-105 transition-transform duration-700 opacity-90 dark:opacity-75"
               />

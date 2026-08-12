@@ -99,7 +99,7 @@ export default function ProfileClient({ cvData }: { cvData: any }) {
             </div>
             
             <div className="flex flex-wrap gap-4 mt-8">
-              <a href="/2132.pdf" download className="bg-black dark:bg-white text-white dark:text-black px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center gap-3">
+              <a href="/api/cv/generate" target="_blank" className="bg-black dark:bg-white text-white dark:text-black px-8 py-4 text-xs font-black uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center gap-3">
                 Download Resume <i className="fa-solid fa-download"></i>
               </a>
               {email && (

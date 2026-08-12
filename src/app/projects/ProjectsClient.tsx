@@ -137,10 +137,16 @@ export default function ProjectsClient({ projectsData }: { projectsData: any[] }
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
+                  <a
+                    href={`/projects/${project.id}`}
+                    className="inline-flex items-center gap-3 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                  >
+                    View Details <i className="fa-solid fa-arrow-right"></i>
+                  </a>
                   <a
                     href={project.link}
-                    className="inline-flex items-center gap-3 bg-black dark:bg-white text-white dark:text-black px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                    className="inline-flex items-center gap-3 border border-black dark:border-white text-black dark:text-white px-6 py-3 text-xs font-black uppercase tracking-widest hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors"
                   >
                     Live Demo <i className="fa-solid fa-arrow-right"></i>
                   </a>
